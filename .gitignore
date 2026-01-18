@@ -1,116 +1,42 @@
-# Angular .gitignore - Complete File Ignore List
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
-# ===== COMPILED OUTPUT & BUILD ARTIFACTS =====
-/dist                          # Production build output
-/tmp                           # Temporary files
-/out-tsc                       # TypeScript compilation output
-/bazel-out                     # Bazel build output
-**/*.ngfactory.ts             # Angular factory files
-**/*.ngstyle.ts               # Angular style files
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
 
-# ===== NODE & DEPENDENCIES =====
-node_modules/                  # All npm/yarn packages (reinstall with npm install)
-**/node_modules/              # Nested node_modules
-.node_modules/
-.node_modules
-npm-debug.log                 # npm debug logs
-yarn-debug.log*               # yarn debug logs
-yarn-error.log*               # yarn error logs
-pnpm-lock.yaml               # pnpm lock file (optional, can commit)
-package-lock.json.bak        # Backup of lock file
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log
 
-# ===== ANGULAR CACHE & BUILD CACHE =====
-/.angular/cache               # Angular CLI cache
-**/.angular/cache             # Nested Angular cache
-.angular/                     # Angular build cache directory
-dist/                         # Build output directory
-build/                        # Build directory
-
-# ===== IDE & EDITOR CONFIGURATION =====
-# VS Code (exclude workspace settings)
-.vscode/*
-!.vscode/settings.json       # KEEP: Shared team settings
-!.vscode/tasks.json          # KEEP: Shared build tasks
-!.vscode/launch.json         # KEEP: Shared debug config
-!.vscode/extensions.json     # KEEP: Recommended extensions
-!.vscode/mcp.json            # KEEP: MCP configuration
-.history/*                   # VS Code history
-.vscode-test-cache/
-.vscode-test-results/
-
-# Other IDEs
-.idea/                       # IntelliJ/WebStorm
+# IDEs and editors
+.idea/
 .project
 .classpath
-.c9/                         # Cloud9
+.c9/
 *.launch
 .settings/
-*.sublime-workspace          # Sublime Text
-*.iml                        # IntelliJ module file
-*.swp                        # Vim swap files
-*.swo
-*~
-.DS_Store                    # macOS folder metadata
-.directory                   # KDE folder metadata
-
-# ===== ANGULAR SPECIFIC FILES =====
-.sass-cache/                 # Sass cache
-/connect.lock                # grunt connect lock
-/coverage                    # Test coverage reports
-/libpeerconnection.log       # WebRTC logs
-testem.log                   # Test runner logs
-/typings                     # TypeScript typings (old)
-*.tsbuildinfo                # TypeScript build info cache
-
-# ===== TESTING =====
-/karma-results/              # Test results
-*.lcov                       # Code coverage
-coverage/                    # Coverage reports
-.nyc_output/                 # NYC coverage
-
-# ===== ENVIRONMENT FILES =====
-.env                         # Local environment variables (API keys, secrets)
-.env.local                   # Local environment overrides
-.env.*.local                 # Environment-specific overrides
-.env.development             # Development secrets
-.env.production              # Production secrets
-.env.test                    # Test secrets
-
-# ===== DEPENDENCY LOCK FILES (OPTIONAL) =====
-# Uncomment if you want to ignore lock files (not recommended)
-# package-lock.json
-# yarn.lock
-# pnpm-lock.yaml
-
-# ===== OS & SYSTEM FILES =====
-Thumbs.db                    # Windows thumbnail cache
-.DS_Store                    # macOS system file
-.AppleDouble
-.LSOverride
-Icon
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-*.cab
-
-# ===== BUILD LOGS & TEMPORARY FILES =====
-*.log                        # All log files
-*.tmp
-*.bak
-*.backup
-*.swp
-.tmp/
-temp/
-tmp/
-
-# ===== COMPILED FILES =====
-*.js.map                     # Source maps (optional: include in production)
-**/*.js (if using TypeScript)  # Compiled JavaScript files
-**/*.css (if using SCSS)      # Compiled CSS files
-
-# ===== MISC =====
-.env.*.local
 *.sublime-workspace
-.vscode-test-cache/
-.vscode-test-results/
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# Miscellaneous
+/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+
+# System files
+.DS_Store
+Thumbs.db
