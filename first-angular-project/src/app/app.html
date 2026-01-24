@@ -1,0 +1,21 @@
+<div class="app-wrapper">
+  <nav class="tab-navigation">
+    <button 
+      class="tab-btn" 
+      [class.active]="activeTab === 'crud'"
+      (click)="switchTab('crud')">
+      👥 User Management
+    </button>
+    <button 
+      class="tab-btn" 
+      [class.active]="activeTab === 'api'"
+      (click)="switchTab('api')">
+      📚 Posts API
+    </button>
+  </nav>
+
+  <div class="tab-content">
+    <app-crud *ngIf="activeTab === 'crud'"></app-crud>
+    <app-api-data *ngIf="activeTab === 'api'"></app-api-data>
+  </div>
+</div>

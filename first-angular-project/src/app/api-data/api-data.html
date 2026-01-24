@@ -1,0 +1,108 @@
+<div class="api-container">
+  <h1>📚 Posts API Dashboard - Optimized</h1>
+  <p class="subtitle">Fast data fetching with smart caching & progressive loading</p>
+
+  <!-- Loading State -->
+  <div *ngIf="isLoading()" class="loading">
+    <div class="spinner"></div>
+    <p>{{ useProgressiveLoading() ? 'Loading posts progressively...' : 'Loading posts...' }}</p>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="error() && !isLoading()" class="error">
+    <p>{{ error() }}</p>
+    <button (click)="refreshData()" class="btn btn-retry">🔄 Retry</button>
+  </div>
+
+  <!-- Success State -->
+  <div *ngIf="!isLoading() && !error()" class="content">
+    <!-- Controls Section -->
+    <div class="controls">
+      <div class="search-box">
+        <input
+          type="text"
+          placeholder="Search posts by title or content..."
+          [value]="searchTerm()"
+          (input)="onSearchChange($event.target.value)"
+          class="search-input"
+        />
+      </div>
+      <div class="button-group">
+        <button (click)="refreshData()" class="btn btn-refresh" title="Clear cache and fetch fresh data">
+          🔄 Refresh
+        </button>
+        <button (click)="toggleProgressiveLoading()" class="btn btn-progressive" [title]="useProgressiveLoading() ? 'Disable progressive loading' : 'Enable progressive loading'">
+          {{ useProgressiveLoading() ? '⏸️ Normal' : '▶️ Progressive' }}
+        </button>
+        <button (click)="saveToLocalStorage()" class="btn btn-save" title="Save data locally">
+          💾 Save
+        </button>
+        <button (click)="loadFromLocalStorage()" class="btn btn-load" title="Load from local storage">
+          📂 Load
+        </button>
+      </div>
+    </div>
+
+    <!-- Results Counter -->
+    <div class="counter">
+      <p>Showing <strong>{{ paginatedPosts().length }}</strong> of <strong>{{ filteredPosts().length }}</strong> | 
+        Total Posts: <strong>{{ posts$().length }}</strong></p>
+    </div>
+
+    <!-- Posts Grid -->
+    <div *ngIf="paginatedPosts().length > 0" class="posts-grid">
+      <div *ngFor="let post of paginatedPosts(); let i = index" class="post-card">
+        <div class="post-header">
+          <span class="post-id">Post #{{ post.id }}</span>
+          <span class="user-id">User {{ post.userId }}</span>
+        </div>
+        <h3 class="post-title">{{ post.title }}</h3>
+        <p class="post-body">{{ post.body }}</p>
+        <div class="post-footer">
+          <span class="tag">{{ ((currentPage() - 1) * itemsPerPage) + i + 1 }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination Controls -->
+    <div *ngIf="totalPages() > 1" class="pagination">
+      <button 
+        (click)="prevPage()" 
+        [disabled]="currentPage() === 1"
+        class="btn btn-nav">
+        ← Previous
+      </button>
+
+      <div class="page-info">
+        <span>Page <strong>{{ currentPage() }}</strong> of <strong>{{ totalPages() }}</strong></span>
+      </div>
+
+      <div class="page-buttons">
+        <button 
+          *ngFor="let page of [].constructor(totalPages()); let i = index"
+          [class.active]="currentPage() === i + 1"
+          (click)="goToPage(i + 1)"
+          class="btn btn-page">
+          {{ i + 1 }}
+        </button>
+      </div>
+
+      <button 
+        (click)="nextPage()" 
+        [disabled]="currentPage() === totalPages()"
+        class="btn btn-nav">
+        Next →
+      </button>
+    </div>
+
+    <!-- No Results State -->
+    <div *ngIf="paginatedPosts().length === 0 && filteredPosts().length === 0 && posts$().length > 0" class="no-results">
+      <p>No posts match your search. Try different keywords!</p>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="posts$().length === 0" class="empty-state">
+      <p>No posts available</p>
+    </div>
+  </div>
+</div>

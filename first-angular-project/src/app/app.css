@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.tab-navigation {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  gap: 0;
+  padding: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 18px 25px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tab-btn:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tab-btn.active {
+  color: white;
+  border-bottom-color: white;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.tab-content {
+  flex: 1;
+}
+
+/* Old styles for reference (can be removed) */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  gap: 30px;
+}
+
+h1 {
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.display {
+  background: white;
+  border-radius: 20px;
+  padding: 40px 60px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  min-width: 200px;
+  text-align: center;
+}
+
+.display h2 {
+  font-size: 72px;
+  color: #667eea;
+  margin: 0;
+  font-weight: bold;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.buttons button {
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.buttons button:nth-child(1) {
+  background: #ff416c;
+}
+
+.buttons button:nth-child(1):hover {
+  background: #ff2d5c;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255, 65, 108, 0.3);
+}
+
+.buttons button:nth-child(2) {
+  background: #667eea;
+}
+
+.buttons button:nth-child(2):hover {
+  background: #5568d3;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.buttons button:nth-child(3) {
+  background: #56ab2f;
+}
+
+.buttons button:nth-child(3):hover {
+  background: #4a9228;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(86, 171, 47, 0.3);
+}
+
+.buttons button:active {
+  transform: translateY(-1px);
+}

@@ -1,0 +1,114 @@
+<div class="crud-container">
+  <h1>User Management System</h1>
+
+  <!-- Add/Create Section -->
+  <div class="form-section">
+    <h2>Add New User</h2>
+    <div class="form-group">
+      <input
+        type="text"
+        placeholder="Full Name"
+        [(ngModel)]="newUser.name"
+        class="input-field"
+      />
+      <input
+        type="email"
+        placeholder="Email Address"
+        [(ngModel)]="newUser.email"
+        class="input-field"
+      />
+      <input
+        type="text"
+        placeholder="Phone Number"
+        [(ngModel)]="newUser.phone"
+        class="input-field"
+      />
+      <button (click)="addUser()" class="btn btn-add">Add User</button>
+    </div>
+  </div>
+
+  <!-- Search Section -->
+  <div class="search-section">
+    <input
+      type="text"
+      placeholder="Search by name or email..."
+      [(ngModel)]="searchTerm"
+      class="search-field"
+    />
+    <button (click)="clearAll()" class="btn btn-delete-all">Clear All</button>
+  </div>
+
+  <!-- Read/Display Section -->
+  <div class="table-section">
+    <h2>User List ({{ filteredUsers.length }} users)</h2>
+    
+    <div *ngIf="filteredUsers.length === 0" class="no-data">
+      <p>No users found. Add a new user to get started!</p>
+    </div>
+
+    <table *ngIf="filteredUsers.length > 0" class="user-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of filteredUsers" [class.editing]="editingId === user.id">
+          <!-- Display Mode -->
+          <td *ngIf="editingId !== user.id">{{ user.id }}</td>
+          <td *ngIf="editingId !== user.id">{{ user.name }}</td>
+          <td *ngIf="editingId !== user.id">{{ user.email }}</td>
+          <td *ngIf="editingId !== user.id">{{ user.phone }}</td>
+
+          <!-- Edit Mode -->
+          <td *ngIf="editingId === user.id" colspan="1"></td>
+          <td *ngIf="editingId === user.id">
+            <input type="text" [(ngModel)]="editingUser.name" class="edit-input" />
+          </td>
+          <td *ngIf="editingId === user.id">
+            <input type="email" [(ngModel)]="editingUser.email" class="edit-input" />
+          </td>
+          <td *ngIf="editingId === user.id">
+            <input type="text" [(ngModel)]="editingUser.phone" class="edit-input" />
+          </td>
+
+          <!-- Actions -->
+          <td class="actions">
+            <button
+              *ngIf="editingId !== user.id"
+              (click)="startEdit(user)"
+              class="btn btn-edit"
+            >
+              Edit
+            </button>
+            <button
+              *ngIf="editingId === user.id"
+              (click)="saveEdit()"
+              class="btn btn-save"
+            >
+              Save
+            </button>
+            <button
+              *ngIf="editingId === user.id"
+              (click)="cancelEdit()"
+              class="btn btn-cancel"
+            >
+              Cancel
+            </button>
+            <button
+              *ngIf="editingId !== user.id"
+              (click)="deleteUser(user.id)"
+              class="btn btn-delete"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
