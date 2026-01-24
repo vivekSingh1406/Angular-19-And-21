@@ -1,19 +1,34 @@
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
-# Compiled output
+# ============================================
+# COMPILED OUTPUT & BUILD FILES
+# ============================================
 /dist
+/build
 /tmp
 /out-tsc
 /bazel-out
+dist/
+build/
 
-# Node
+# ============================================
+# NODE & PACKAGE MANAGEMENT
+# ============================================
+# Node modules folder - IMPORTANT: Add this first
 /node_modules
+node_modules/
 npm-debug.log
 yarn-error.log
+pnpm-debug.log
+
+# Lock files (choose one approach)
 package-lock.json
 yarn.lock
+pnpm-lock.yaml
 
-# IDEs and editors
+# ============================================
+# IDEs AND EDITORS
+# ============================================
 .idea/
 .project
 .classpath
@@ -21,45 +36,59 @@ yarn.lock
 *.launch
 .settings/
 *.sublime-workspace
+
+# Editor temporary files
 *.swp
 *.swo
 *~
+*.iml
 
-# Visual Studio Code
+# ============================================
+# VISUAL STUDIO CODE
+# ============================================
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-.history/*
-.vscode/
+.history/
 
-# Environment variables
+# ============================================
+# ENVIRONMENT VARIABLES & SECRETS
+# ============================================
 .env
 .env.local
 .env.*.local
+.env.*.js
+!.env.example
 
-# Miscellaneous
+# ============================================
+# ANGULAR SPECIFIC
+# ============================================
 /.angular/cache
+/.angular
+
+# ============================================
+# TEST & COVERAGE
+# ============================================
+/coverage
+testem.log
+.nyc_output/
+
+# ============================================
+# MISC DIRECTORIES
+# ============================================
 .sass-cache/
 /connect.lock
-/coverage
 /libpeerconnection.log
-testem.log
 /typings
-*.log
+temp/
 
-# System files
+# ============================================
+# SYSTEM & OS SPECIFIC FILES
+# ============================================
 .DS_Store
 Thumbs.db
-
-# IDE specific files
-*.iml
-.class
-.gradle
-build/
-
-# OS specific
 .AppleDouble
 .LSOverride
 ._*
@@ -67,17 +96,18 @@ build/
 .Trashes
 ehthumbs.db
 
-# Dependencies lock files (uncomment if you want to commit lock files)
-# package-lock.json
-# yarn.lock
-# pnpm-lock.yaml
+# ============================================
+# GRADLE & BUILD TOOLS
+# ============================================
+.gradle
+.class
 
-# Temporary files
+# ============================================
+# TEMPORARY & BACKUP FILES
+# ============================================
 *.tmp
 *.bak
+*.log
 *.swp
-temp/
-
-# Build outputs
-dist/
-build/
+*.temp
+*~
