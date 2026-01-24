@@ -46,6 +46,8 @@ pnpm-lock.yaml
 # ============================================
 # VISUAL STUDIO CODE
 # ============================================
+.vscode
+.vscode/
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -65,9 +67,11 @@ pnpm-lock.yaml
 # ============================================
 # ANGULAR SPECIFIC
 # ============================================
-/.angular/cache
 /.angular
-
+/.angular/cache
+.angular/
+.angular/cache/
+.angular-devkit
 # ============================================
 # TEST & COVERAGE
 # ============================================
