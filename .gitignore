@@ -122,46 +122,4 @@ ehthumbs.db
 
 
 
-# ============================================
-# BACKEND APPLICATION (Spring Boot)
-# ============================================
-# Maven build output
-backend-application/target/
-backend-application/.mvn/
-backend-application/build/
 
-# IDE specific files
-backend-application/.idea/
-backend-application/.vscode/
-backend-application/*.iml
-backend-application/*.iws
-backend-application/*.ipr
-
-# STS (Spring Tools Suite)
-backend-application/.apt_generated
-backend-application/.classpath
-backend-application/.factorypath
-backend-application/.project
-backend-application/.settings
-backend-application/.springBeans
-backend-application/.sts4-cache
-
-# NetBeans
-backend-application/nbproject/
-backend-application/build/
-backend-application/.nb-gradle/
-
-# Spring Boot specific
-backend-application/.spring-boot-devtools.properties
-
-# ============================================
-# FRONTEND APPLICATION (Angular)
-# ============================================
-front-end-application/node_modules/
-front-end-application/dist/
-front-end-application/.angular/
-first-angular-project/node_modules/
-first-angular-project/dist/
-first-angular-project/.angular/
-
-HELP.md
