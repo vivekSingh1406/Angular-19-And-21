@@ -49,14 +49,15 @@ pnpm-lock.yaml
 # ============================================
 # VISUAL STUDIO CODE
 # ============================================
-.vscode
 .vscode/
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+!.vscode/mcp.json
 .history/
+.history/*
 
 # ============================================
 # ENVIRONMENT VARIABLES & SECRETS
@@ -75,6 +76,7 @@ pnpm-lock.yaml
 .angular/
 .angular/cache/
 .angular-devkit
+
 # ============================================
 # TEST & COVERAGE
 # ============================================
@@ -90,6 +92,7 @@ testem.log
 /libpeerconnection.log
 /typings
 temp/
+__screenshots__/
 
 # ============================================
 # SYSTEM & OS SPECIFIC FILES
