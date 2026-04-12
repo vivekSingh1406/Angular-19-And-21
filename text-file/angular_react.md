@@ -125,7 +125,7 @@ const DataContext = createContext();
 
 ---
 
-## ⚡ Performance
+## Performance
 
 * React is faster due to **Virtual DOM**
 * Angular uses **real DOM + change detection**
@@ -190,7 +190,7 @@ Since you are a **Java Developer** 👇
 
 ---
 
-### Advanced Questions (Very Important 🔥)
+### Advanced Questions (Very Important)
 
 11. How does Angular’s change detection differ from React’s reconciliation?
 12. Explain Zone.js in Angular.
