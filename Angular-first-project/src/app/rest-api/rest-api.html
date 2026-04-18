@@ -1,0 +1,34 @@
+<div style="text-align:center;">
+  <h1>Angular Dummy API (GET + CREATE)</h1>
+
+  <!-- 🔹 Create User Form -->
+  <div style="margin-bottom: 20px;">
+    <input [(ngModel)]="newUser.name" placeholder="Name" />
+    <input [(ngModel)]="newUser.email" placeholder="Email" />
+    <input [(ngModel)]="newUser.phone" placeholder="Phone" />
+    <button (click)="addUser()">Add User</button>
+  </div>
+
+  <!-- 🔹 User Table -->
+  <h2>User List</h2>
+
+  <table class="user-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let user of users; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phone }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
