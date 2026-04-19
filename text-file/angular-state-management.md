@@ -19,10 +19,8 @@
 
 ## 1. What is State in Frontend?
 
-> 👉 **State = The data that controls your UI at any given time.**
-> Whenever state changes → UI updates automatically.
-
-Every visible UI element is powered by some underlying data. Understanding state is the foundation of all state management.
+> State = The data that controls your UI at any given time. Whenever state changes → UI updates automatically.
+> Every visible UI element is powered by some underlying data. Understanding state is the foundation of all state management.
 
 ### Common Types of State
 
@@ -51,19 +49,18 @@ Every visible UI element is powered by some underlying data. Understanding state
 
 ## 2. Problems Without State Management
 
-### ❌ Problem 1 — Props Drilling
+### Problem 1 — Props Drilling
 
-> Passing data through many unnecessary component layers.
+Passing data through many unnecessary component layers.
+Even intermediate components that don't need  the data must pass it along. Code becomes messy, hard to maintain, and tightly coupled.
 
 ```
 App → Dashboard → Sidebar → Profile → Avatar
 ```
 
-Even intermediate components that **don't need** the data must pass it along. Code becomes messy, hard to maintain, and tightly coupled.
-
 ---
 
-### ❌ Problem 2 — API Duplication
+### Problem 2 — API Duplication
 
 Without centralized state, multiple components call the same API independently:
 
@@ -71,29 +68,29 @@ Without centralized state, multiple components call the same API independently:
 - Profile → calls `/api/user`
 - Dashboard → calls `/api/user`
 
-**Result:** 3 network requests for the same data → performance issues + data inconsistency.
+3 network requests for the same data → performance issues + data inconsistency.
 
 ---
 
-### ❌ Problem 3 — Inconsistent UI
+### Problem 3 — Inconsistent UI
 
 Component A updates data locally. Component B still shows stale data. Cart count in the header doesn't match the cart page count.
 
 ---
 
-### ❌ Problem 4 — Hard to Debug
+### Problem 4 — Hard to Debug
 
 No clear log of what changed, when, and why. Bugs are difficult to reproduce and fix.
 
 ---
 
-### ❌ Problem 5 — Tight Coupling
+### Problem 5 — Tight Coupling
 
 Components depend directly on each other — changing one breaks others.
 
 ---
 
-### ✅ Solution: Centralized State Management (NgRx)
+### Solution: Centralized State Management (NgRx)
 
 - Store all data in **ONE place** (NgRx Store)
 - All components read from and write to the same store
