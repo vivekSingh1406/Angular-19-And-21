@@ -1,0 +1,21 @@
+<section class="todo">
+  <h2>Todos (NgRx)</h2>
+  <form (ngSubmit)="add()" class="add-form">
+    <input [formControl]="title" placeholder="New todo title" />
+    <button type="button" (click)="add()">Add</button>
+  </form>
+
+  <div *ngIf="(loading$ | async); else list">Loading...</div>
+
+  <ng-template #list>
+    <ul>
+      <li *ngFor="let t of (todos$ | async)">
+        <label>
+          <input type="checkbox" [checked]="t.completed" (change)="toggle(t.id)" />
+          <span [class.completed]="t.completed">{{ t.title }}</span>
+        </label>
+        <button (click)="remove(t.id)">Delete</button>
+      </li>
+    </ul>
+  </ng-template>
+</section>
