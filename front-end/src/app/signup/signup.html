@@ -1,0 +1,156 @@
+<div class="signup-container">
+
+  <div class="signup-card">
+
+    <div class="header">
+      <h1>Create Account</h1>
+      <p>Register to continue shopping</p>
+    </div>
+
+    <form (ngSubmit)="onSubmit()" #signupForm="ngForm">
+
+      <!-- USERNAME -->
+
+      <div class="form-group">
+
+        <label for="userName">Username</label>
+
+        <input
+          type="text"
+          id="userName"
+          name="userName"
+          [(ngModel)]="userName"
+          #userNameRef="ngModel"
+          required
+          minlength="3"
+          maxlength="20"
+          pattern="^[a-zA-Z0-9_]+$"
+          placeholder="Enter username"
+        />
+
+        <small class="error" *ngIf="userNameRef.invalid && userNameRef.touched">
+          <span *ngIf="userNameRef.errors?.['required']">Username is required</span>
+          <span *ngIf="userNameRef.errors?.['minlength']">Username must be at least 3 characters</span>
+          <span *ngIf="userNameRef.errors?.['pattern']">Only letters, numbers and underscore allowed</span>
+        </small>
+
+      </div>
+
+      <!-- PASSWORD -->
+
+      <div class="form-group">
+
+        <label for="password">Password</label>
+
+        <input
+          type="password"
+          id="password"
+          name="password"
+          [(ngModel)]="password"
+          #passwordRef="ngModel"
+          required
+          minlength="8"
+          pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&*!]).{8,20}$"
+          placeholder="Enter strong password"
+        />
+
+        <small class="error" *ngIf="passwordRef.invalid && passwordRef.touched">
+          <span *ngIf="passwordRef.errors?.['required']">Password is required</span>
+          <span *ngIf="passwordRef.errors?.['pattern']">Password must contain uppercase, lowercase, number and special character</span>
+        </small>
+
+      </div>
+
+      <!-- EMAIL -->
+
+      <div class="form-group">
+
+        <label for="email">Email</label>
+
+        <input
+          type="email"
+          id="email"
+          name="email"
+          [(ngModel)]="email"
+          #emailRef="ngModel"
+          required
+          email
+          placeholder="Enter email"
+        />
+
+        <small class="error" *ngIf="emailRef.invalid && emailRef.touched">
+          <span *ngIf="emailRef.errors?.['required']">Email is required</span>
+          <span *ngIf="emailRef.errors?.['email']">Invalid email format</span>
+        </small>
+
+      </div>
+
+      <!-- MOBILE -->
+
+      <div class="form-group">
+
+        <label for="mobileNumber">Mobile Number</label>
+
+        <input
+          type="text"
+          id="mobileNumber"
+          name="mobileNumber"
+          [(ngModel)]="mobileNumber"
+          #mobileRef="ngModel"
+          required
+          pattern="^[6-9]\d{9}$"
+          placeholder="Enter mobile number"
+        />
+
+        <small class="error" *ngIf="mobileRef.invalid && mobileRef.touched">
+          <span *ngIf="mobileRef.errors?.['required']">Mobile number is required</span>
+          <span *ngIf="mobileRef.errors?.['pattern']">Enter valid 10 digit Indian mobile number</span>
+        </small>
+
+      </div>
+
+      <!-- COUNTRY -->
+
+      <div class="form-group">
+
+        <label for="country">Country</label>
+
+        <input
+          type="text"
+          id="country"
+          name="country"
+          [(ngModel)]="country"
+          #countryRef="ngModel"
+          required
+          minlength="2"
+          placeholder="Enter country"
+        />
+
+        <small class="error" *ngIf="countryRef.invalid && countryRef.touched">Country is required</small>
+
+      </div>
+
+      <!-- BUTTON -->
+
+      <button
+        type="submit"
+        class="signup-btn"
+        [disabled]="signupForm.invalid"
+      >
+        Create Account
+      </button>
+
+    </form>
+
+    <div class="footer">
+
+      <p>
+        Already have an account?
+        <a routerLink="/signin">Sign In</a>
+      </p>
+
+    </div>
+
+  </div>
+
+</div>

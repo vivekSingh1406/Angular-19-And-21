@@ -1,0 +1,126 @@
+<div class="product-page">
+
+  <!-- HEADER -->
+
+  <div class="header">
+
+    <div>
+      <h1>Products Store</h1>
+      <p> Welcome,<span>{{ userName }}</span></p>
+    </div>
+
+    <button
+      class="logout-btn"
+      (click)="logout()"
+    >
+      Logout
+    </button>
+
+  </div>
+
+  <!-- FILTER -->
+
+  <div class="filter-section">
+
+    <label for="category">
+      Filter By Category
+    </label>
+
+    <select
+      id="category"
+      [(ngModel)]="selectedCategory"
+      (change)="onCategoryChange()"
+    >
+
+      <option value="All">
+        All Products
+      </option>
+
+      <option
+        *ngFor="let category of categories"
+        [value]="category"
+      >
+        {{ category }}
+      </option>
+
+    </select>
+
+  </div>
+
+  <!-- LOADING -->
+
+  <div
+    class="loading"
+    *ngIf="isLoading"
+  >
+    Loading products...
+  </div>
+
+  <!-- EMPTY -->
+
+  <div
+    class="empty"
+    *ngIf="!isLoading && filteredProducts.length === 0"
+  >
+    No products found
+  </div>
+
+  <!-- PRODUCTS -->
+
+  <div class="product-grid">
+
+    <div
+      class="product-card"
+      *ngFor="let product of displayedProducts; trackBy: trackByProduct"
+    >
+
+      <img
+        [src]="product.thumbnail"
+        [alt]="product.title"
+        loading="lazy"
+      />
+
+      <div class="product-content">
+
+        <h2>
+          {{ product.title }}
+        </h2>
+
+        <p class="brand">
+          {{ product.brand }}
+        </p>
+
+        <p class="description">
+          {{ product.description }}
+        </p>
+
+        <div class="product-footer">
+
+          <div class="price">
+            ₹{{ product.price }}
+          </div>
+
+          <div class="rating">
+            ⭐ {{ product.rating || 'N/A' }}
+          </div>
+
+        </div>
+
+        <div class="stock">
+
+          Stock:
+          {{ product.stock || 0 }}
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="load-more" *ngIf="displayedCount < filteredProducts.length">
+    <button (click)="loadMore()">Load more</button>
+  </div>
+
+</div>

@@ -1,0 +1,77 @@
+<div class="signin-container">
+
+  <div class="signin-card">
+
+    <div class="header">
+      <h1>Welcome Back</h1>
+      <p>Please sign in to continue</p>
+    </div>
+
+    <form (ngSubmit)="onSubmit()" #signInForm="ngForm">
+
+      <!-- USERNAME -->
+
+      <div class="form-group">
+
+        <label for="userName">Username</label>
+
+        <input
+          type="text"
+          id="userName"
+          name="userName"
+          [(ngModel)]="userName"
+          #userNameRef="ngModel"
+          required
+          minlength="3"
+          placeholder="Enter username"
+        />
+
+        <small class="error" *ngIf="userNameRef.invalid && userNameRef.touched">Username is required</small>
+
+      </div>
+
+      <!-- PASSWORD -->
+
+      <div class="form-group">
+
+        <label for="password">Password</label>
+
+        <input
+          type="password"
+          id="password"
+          name="password"
+          [(ngModel)]="password"
+          #passwordRef="ngModel"
+          required
+          minlength="6"
+          placeholder="Enter password"
+        />
+
+        <small class="error" *ngIf="passwordRef.invalid && passwordRef.touched">Password is required</small>
+
+      </div>
+
+      <!-- BUTTON -->
+
+      <button
+        type="submit"
+        class="signin-btn"
+        [disabled]="signInForm.invalid"
+      >
+        Sign In
+      </button>
+
+    </form>
+
+    <div class="footer">
+
+      <p>
+        Don't have an account?
+        <a routerLink="/signup">Create Account</a>
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
